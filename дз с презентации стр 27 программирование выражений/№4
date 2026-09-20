@@ -1,0 +1,10 @@
+import math
+
+x1 = float(input())  #запишем x первой точки
+y1 = float(input())  #запишем y первой точки
+x2 = float(input())  #запишем x второй точки
+y2 = float(input())  #запишем y второй точки
+
+d = math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)  #считаем расстояние
+
+print(d)
