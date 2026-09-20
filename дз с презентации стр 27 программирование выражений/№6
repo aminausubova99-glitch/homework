@@ -1,0 +1,10 @@
+import random
+import math
+
+x = random.uniform(-10, 10) 
+y = random.uniform(-10, 10)
+
+k = math.sqrt(x ** 2 + y ** 2)  #считаем расстояние до (0, 0)
+
+print(x, y)
+print(k)
