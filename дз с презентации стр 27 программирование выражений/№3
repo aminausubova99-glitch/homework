@@ -1,0 +1,8 @@
+import math
+
+a = float(input())  #введем первый катет
+b = float(input())  #введем второй катет
+
+c = math.sqrt(a ** 2 + b ** 2)  #ищем теперь гипотенузу
+
+print(c)
