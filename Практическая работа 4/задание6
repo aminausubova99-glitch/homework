@@ -1,0 +1,8 @@
+import math
+
+x = float(input())  #указываем угол в градусах
+x = math.radians(x)  #переводим градусы в радианы
+
+result = math.sin(x) + math.cos(x) + math.tan(x) ** 2  #считаем выражение
+
+print(result) #выдаем ответ
