@@ -1,0 +1,46 @@
+#номиналы купюр
+B5000 = 5000
+B2000 = 2000
+B1000 = 1000
+B500 = 500
+B200 = 200
+B100 = 100
+
+def calculate_bills(amount):
+    """Считает количество купюр каждого наминала"""
+
+    #считаем купюры
+    count_5000 = amount // B5000
+    amount = amount % B5000
+
+    count_2000 = amount // B2000
+    amount = amount % B2000
+
+    count_1000 = amount // B1000
+    amount = amount % B1000
+
+    count_500 = amount // B500
+    amount = amount % B500
+
+    count_200 = amount // B200
+    amount = amount % B200
+
+    count_100 = amount // B100
+
+    return count_5000, count_2000, count_1000, count_500, count_200, count_100 #возвращаем количество купюр каждого номинала 
+
+amount = int(input("Введите сумму: ")) #ввод суммы которое надо снять 
+
+#проверяем сумму
+if amount <= 0 or amount % B100 != 0:
+    print("Сумма должна быть кратной 100")
+else:
+    bills = calculate_bills(amount) #рассчитываем количество купюр 
+
+    print(f"Сумма: {amount} руб.") #выводим общую сумму
+    print(f"5000 руб.: {bills[0]} шт.")
+    print(f"2000 руб.: {bills[1]} шт.")
+    print(f"1000 руб.: {bills[2]} шт.")
+    print(f"500 руб.: {bills[3]} шт.")
+    print(f"200 руб.: {bills[4]} шт.")
+    print(f"100 руб.: {bills[5]} шт.")
