@@ -1,0 +1,15 @@
+FUEL_PRICE = 49.5  #цена 1 литра бензина
+
+def calculate_trip_cost(distance_km, fuel_per_100_km, fuel_price):
+    """Вычисляет расход бензина и стоимость поездки"""
+    fuel_needed = distance_km * fuel_per_100_km / 100  #считаем расход
+    total_cost = fuel_needed * fuel_price  #считаем стоимость поездки
+
+    return fuel_needed, total_cost  #возвращаем два результата
+
+distance_km, fuel_per_100_km = map(float, input('Введите расстояние (км) и расход (л/100 км) : ').split()) 
+
+fuel_needed, total_cost = calculate_trip_cost(distance_km,fuel_per_100_km, FUEL_PRICE)  #получаем результаты расчёта
+
+print(f'Нужно бензина: {fuel_needed:.2f} л')  #показываем расход
+print(f'Стоимость поездки: {total_cost:.2f} руб.')  #показываем стоимость
