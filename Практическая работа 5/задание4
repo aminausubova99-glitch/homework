@@ -9,9 +9,9 @@ def calculate_circle_area(radius):
     return math.pi * radius ** 2 #считаем площадь круга
 
 width, height = map( float,input('Введите ширину и высоту прямоугольника: ').strip()) #задаем ширину и высоту
-rectangle_area = calculate_rectangle_area(width, height) #вызываем функцию
+rectangle_area = calculate_rectangle_area(width, height) #вызываем функциюдля вычисления прямоугольника
 print(f'Площадь прямоугольника: {rectangle_area:.2f}')  #выводим результат
 
 radius = float(input('Введите радиус круга: ')) #вводим радиус
-circle_area = calculate_circle_area(radius) #вызываем функцию
+circle_area = calculate_circle_area(radius) #вызываем функцию для вычисления круга
 print(f'Площадь круга: {circle_area:.2f}') #выводим результат 
