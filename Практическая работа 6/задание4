@@ -1,0 +1,14 @@
+#считываем координаты начальной и конечной клеток
+column_1, row_1, column_2, row_2 = map(int, input().split())
+
+#верность ввода (координаты должны быть от 1 до 8)
+if not (1 <= column_1 <= 8 and 1 <= row_1 <= 8 and 1 <= column_2 <= 8 and 1 <= row_2 <= 8):
+    print("ошибка ввода")
+#проверяем, что клетки действительно разные
+elif column_1 == column_2 and row_1 == row_2:
+    print("NO")
+#верность кода, что слон ходит по диагонали
+elif abs(column_1 - column_2) == abs(row_1 - row_2):
+    print("YES")
+else:
+    print("NO")
