@@ -1,0 +1,12 @@
+#считываем координаты двух клеток
+column_1, row_1, column_2, row_2 = map(int, input().split())
+
+#проверяем, чтоб все числа были в диапазоне от 1 до 8 (цепочки сравнений)
+if not (1 <= column_1 <= 8 and 1 <= row_1 <= 8 and 1 <= column_2 <= 8 and 1 <= row_2 <= 8):
+    print("ошибка ввода")
+else:
+    #если суммы координат одной четности — цвет совпадает
+    if (column_1 + row_1) % 2 == (column_2 + row_2) % 2:
+        print("YES")
+    else:
+        print("NO")
