@@ -1,0 +1,20 @@
+first_column = int(input("Столбец первой клетки: "))
+first_row = int(input("Строка первой клетки: "))
+second_column = int(input("Столбец второй клетки: "))
+second_row = int(input("Строка второй клетки: "))
+
+#проверяем, что координаты обеих клеток находятся от 1 до 8 
+if not (1 <= first_column <= 8 and
+        1 <= first_row <= 8 and
+        1 <= second_column <= 8 and
+        1 <= second_row <= 8):
+    print("Ошибка ввода")
+
+#ферзь ходит вертикально, горизонтально или по диагонали
+elif (first_column == second_column or
+      first_row == second_row or
+      abs(first_column - second_column) == abs(first_row - second_row)):
+    print("YES")
+
+else:
+    print("NO")
