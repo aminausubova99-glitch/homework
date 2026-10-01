@@ -1,0 +1,12 @@
+m = int(input())
+p = int(input())
+n = int(input())
+
+population = m
+
+#выводим размер популяции для каждого дня
+for day in range(1, n + 1):
+    print(f"{day} {population:g}")
+
+    #увеличиваем популяцию на p процентов
+    population *= 1 + p / 100
