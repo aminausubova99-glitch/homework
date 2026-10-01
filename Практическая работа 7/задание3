@@ -1,0 +1,104 @@
+print("☕ Интерактивное меню кафе ☕")
+print()
+
+#цены на напитки
+COFFEE_PRICE = 120
+TEA_PRICE = 80
+JUICE_PRICE = 100
+WATER_PRICE = 50
+LEMONADE_PRICE = 90
+
+#показываем меню с ценами
+print("1. Кофе ☕ — 120 рублей")
+print("2. Чай 🍵 — 80 рублей")
+print("3. Сок 🧃 — 100 рублей")
+print("4. Вода 💧 — 50 рублей")
+print("5. Лимонад 🥤 — 90 рублей")
+
+try:
+    #просим выбрать напиток по номеру или названию
+    choice = input(
+        "\nВведите номер напитка (1-5) или его название: "
+    ).strip().lower()
+
+    #определяем выбранный напиток и его цену
+    match choice:
+        case "1" | "кофе":
+            drink = "Кофе ☕"
+            price = COFFEE_PRICE
+        case "2" | "чай":
+            drink = "Чай 🍵"
+            price = TEA_PRICE
+        case "3" | "сок":
+            drink = "Сок 🧃"
+            price = JUICE_PRICE
+        case "4" | "вода":
+            drink = "Вода 💧"
+            price = WATER_PRICE
+        case "5" | "лимонад":
+            drink = "Лимонад 🥤"
+            price = LEMONADE_PRICE
+        case _:
+            #если напиток выбран неправильно
+            drink = None
+            price = 0
+
+    if drink is None:
+        print("❌ Некорректный выбор напитка.")
+    else:
+        #узнаём, сколько порций нужно
+        quantity = int(input("Введите количество порций: "))
+
+        if quantity <= 0:
+            print("❌ Количество порций должно быть больше 0")
+        else:
+            #просим ввести код скидки
+            discount_code = input(
+                "Введите код скидки (если нет, нажмите Enter): "
+            ).strip().upper()
+
+            #считаем общую стоимость без скидки
+            total = price * quantity
+            discount = 0
+
+            #проверяем код скидки
+            match discount_code:
+                case "CAFE10":
+                    discount = total * 0.10
+                    discount_text = "10%"
+                case "CAFE20":
+                    discount = total * 0.20
+                    discount_text = "20%"
+                case "":
+                    discount_text = "Нет"
+                case _:
+                    #если код неправильный, скидки не будет
+                    discount_text = "Нет"
+                    print("⚠️ Код скидки не найден")
+
+            #вычитаем скидку из общей суммы
+            final_price = total - discount
+
+            #выбираем правильное слово: порция, порции или порций
+            if quantity == 1:
+                portion_word = "порция"
+            elif 2 <= quantity <= 4:
+                portion_word = "порции"
+            else:
+                portion_word = "порций"
+
+            #выводим квитанцию с итогами заказа
+            print("\n" + "=" * 40)
+            print("🧾 КВИТАНЦИЯ")
+            print("=" * 40)
+            print(f"☕ Напиток: {drink}")
+            print(f"💰 Цена за одну порцию: {price} рублей")
+            print(f"🔢 Количество: {quantity} {portion_word}")
+            print(f"💵 Сумма: {total:.2f} рублей")
+            print(f"🏷️ Скидка: {discount_text}")
+            print(f"💳 К оплате: {final_price:.2f} рублей")
+            print("=" * 40)
+
+except ValueError:
+    #сообщаем об ошибке, если вместо числа ввели буквы
+    print("❌ Ошибка: количество порций должно быть целым числом")
