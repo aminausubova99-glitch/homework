@@ -1,0 +1,36 @@
+print("⭐ Система рейтинга продуктов ⭐")
+
+try:
+    rating = int(input("Введите рейтинг продукта от 1 до 10: ")) #запрашиваем оценки у пользователя число и сразу преобразуем в целое 
+
+    match rating:
+        case 9 | 10:
+            description = "Отличный"
+            emoji = "⭐"
+            recommendation = "Рекомендую"
+        case 7 | 8:
+            description = "Хороший"
+            emoji = "😊"
+            recommendation = "Рекомендую"
+        case 4 | 5 | 6:
+            description = "Средний"
+            emoji = "😐"
+            recommendation = "Ну можно попробовать"
+        case 1 | 2 | 3:
+            description = "Плохой"
+            emoji = "😞"
+            recommendation = "Не рекомендую"
+        case _:
+            description = "Некорректный рейтинг"
+            emoji = "❌"
+            recommendation = "Введите число от 1 до 10"
+
+    print("\n" + "=" * 35) #выводим результаты в консоль 
+    print(f"⭐ Рейтинг: {rating}")
+    print(f"📝 Описание: {description}")
+    print(f"{emoji} Оценка: {description}")
+    print(f"💡 Рекомендация: {recommendation}")
+    print("=" * 35)
+
+except ValueError:
+    print("❌ Ошибка: необходимо ввести целое число")
