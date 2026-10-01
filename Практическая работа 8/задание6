@@ -1,0 +1,23 @@
+import random
+
+#программа загадывает число от 1 до 10
+secret_number = random.randint(1, 10)
+
+#даём пользователю 3 попытки
+for attempt in range(1, 4):
+    user_number = int(input())
+
+    if user_number == secret_number:
+        print("Угадали!")
+        break
+
+    print("Неверно")
+
+    if user_number < secret_number:
+        print("Нужно больше")
+    else:
+        print("Нужно меньше")
+
+else:
+    #этот блок выполняется, если цикл завершился
+    print(f"Загаданное число: {secret_number}")
