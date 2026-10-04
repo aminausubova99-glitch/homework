@@ -92,10 +92,10 @@ try:
             print("🧾 КВИТАНЦИЯ")
             print("=" * 40)
             print(f"☕ Напиток: {drink}")
-            print(f"💰 Цена за одну порцию: {price} рублей")
+            print(f"Цена за одну порцию: {price} рублей")
             print(f"Количество: {quantity} {portion_word}")
             print(f"💵 Сумма: {total:.2f} рублей")
-            print(f"🏷️ Скидка: {discount_text}")
+            print(f"Скидка: {discount_text}")
             print(f"💳 К оплате: {final_price:.2f} рублей")
             print("=" * 40)
 
