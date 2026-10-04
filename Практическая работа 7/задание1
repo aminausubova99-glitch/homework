@@ -1,7 +1,7 @@
 print("⭐ Система рейтинга продуктов ⭐")
 
 try:
-    rating = int(input("Введите рейтинг продукта от 1 до 10: ")) #запрашиваем оценки у пользователя число и сразу преобразуем в целое 
+    rating = int(input("Введите рейтинг продукта от 1 до 10: ")) #запрашиваем оценки у пользователя число и сразу меняем в целое 
 
     match rating:
         case 9 | 10:
@@ -28,8 +28,8 @@ try:
     print("\n" + "=" * 35) #выводим результаты в консоль 
     print(f"⭐ Рейтинг: {rating}")
     print(f"📝 Описание: {description}")
-    print(f"{emoji} Оценка: {description}")
-    print(f"💡 Рекомендация: {recommendation}")
+    print(f"Оценка: {description}")
+    print(f"Рекомендация: {recommendation}")
     print("=" * 35)
 
 except ValueError:
