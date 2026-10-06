@@ -9,7 +9,7 @@ while True:
 
     elif price < 0:
         print("Ошибка цены")
-        continue  #пропускаем отрицательную цену
+        continue  
 
     else:
         total_cost = total_cost + price  #добавляем цену к общей сумме
