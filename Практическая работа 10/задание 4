@@ -1,0 +1,22 @@
+total_cost = 0  #общая стоимость товаров
+
+while True:
+    #вводим цену очередного товара
+    price = int(input("Введите цену товара (0 - закончить): "))
+
+    if price == 0:
+        break  
+
+    elif price < 0:
+        print("Ошибка цены")
+        continue  #пропускаем отрицательную цену
+
+    else:
+        total_cost = total_cost + price  #добавляем цену к общей сумме
+
+#если сумма больше 1000, испоьзуем скидку 10%
+if total_cost > 1000:
+    total_cost = total_cost * 0.9
+    print("Итоговая сумма к оплате:", total_cost)
+else:
+    print("Итоговая сумма к оплате:", total_cost)
