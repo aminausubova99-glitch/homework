@@ -10,18 +10,18 @@ while True:
     operation = int(input("Выберите операцию: "))
 
     if operation == 1:
-        print("Текущий баланс:", balance)
+        print("Текущий баланс:", balance) #вывод текущего баланса
 
     elif operation == 2:
         if balance >= 100:
-            balance = balance - 100
+            balance = balance - 100  #снимаем 100 рублей
             print("Снято")
         else:
-            print("Недостаточно средств")
+            print("Недостаточно средств") #проверка, что есть там деньги
 
     elif operation == 3:
         balance = balance + 100
-        print("На счет положено 100 руб")
+        print("На счет положено 100 руб") #добавили на счет 100 рублей
 
     elif operation == 4:
         print("До свидания")
