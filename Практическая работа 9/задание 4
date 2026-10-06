@@ -1,0 +1,53 @@
+number = int(input("Введите натуральное число: "))
+
+last_digit = number % 10 #запоминаем последнюю цифру исходного числа
+
+#начальные знаение 
+count_threes = 0
+count_last_digit = 0
+count_even_digits = 0
+sum_greater_five = 0
+product_greater_seven = 1
+count_zero_five = 0
+
+#число для обработки 
+temp_number = number
+
+#обрабатываем все цифры числа справа налево
+while temp_number > 0:
+    digit = temp_number % 10
+
+    #считаем количество цифр 3
+    if digit == 3:
+        count_threes += 1
+
+    #считаем, сколько раз встречается последняя цифра
+    if digit == last_digit:
+        count_last_digit += 1
+
+    #считаем количество чётных цифр
+    if digit % 2 == 0:
+        count_even_digits += 1
+
+    #складываем цифры больших 5
+    if digit > 5:
+        sum_greater_five += digit
+
+    #умножаем цифры больше 7 
+    if digit > 7:
+        product_greater_seven *= digit
+
+    #считаем количество цифр 0 и 5
+    if digit == 0 or digit == 5:
+        count_zero_five += 1
+
+    #убираем последнюю цифру
+    temp_number //= 10
+
+#выводим результаты в порядке
+print(f"{count_threes}")
+print(f"{count_last_digit}")
+print(f"{count_even_digits}")
+print(f"{sum_greater_five}")
+print(f"{product_greater_seven}")
+print(f"{count_zero_five}")
