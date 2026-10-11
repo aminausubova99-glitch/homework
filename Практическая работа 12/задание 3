@@ -1,0 +1,9 @@
+users = ['Admin', 'Guest', 'User', 'Bot'] #список пользователей
+
+users[2] = 'Moderator' #замена user на Moderator
+
+users[-1] = 'SuperAdmin' #замена последний элемент на SuperAdmin
+
+users = users + ['Newbie'] #добавляем нового пользователя Newbie 
+
+print("Итоговый список пользователей:", users) #вывод 
