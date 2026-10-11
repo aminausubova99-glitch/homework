@@ -1,0 +1,17 @@
+numbers = [10, 20, 30, 40, 50] #список чисел
+
+search_number = int(input("Введите число для поиска: ")) #вводим число для поиска
+
+found = False
+
+#перебираем индексы элементов списка
+for i in range(len(numbers)):
+    #крч, проверяем, совпадает ли элемент
+    if numbers[i] == search_number:
+        print("Индекс числа", search_number, ":", i)
+        found = True
+        break
+
+#если число не найдено, выводим 
+if not found:
+    print("Нет такого числа")
