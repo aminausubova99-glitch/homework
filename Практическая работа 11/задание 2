@@ -1,0 +1,7 @@
+for bulls in range(11):
+    for cows in range(21):
+        for calves in range(201):
+            if 10 * bulls + 5 * cows + 0.5 * calves == 100 and (bulls + cows + calves >= 1):
+                print("Быков:", bulls)
+                print("Коров:", cows)
+                print("Телят:", calves) 
