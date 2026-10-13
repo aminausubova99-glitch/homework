@@ -1,0 +1,40 @@
+n = int(input("Введите число: "))
+
+last_digit = n % 10
+
+count_3 = 0       #количество цифр 3
+count_last = 0    #сколько раз встречается последняя цифра
+count_even = 0    #количество чётных цифр
+sum_big_5 = 0     #сумма цифр больше 5
+mult_big_7 = 1    #произведение цифр больше 7
+count_0_5 = 0     #количество цифр 0 и 5
+
+while n > 0: #проверяем теперь каждую цифру числа
+    digit = n % 10  #берём последнюю цифру 
+
+    if digit == 3:
+        count_3 += 1 
+
+    if digit == last_digit: #считаем, сколько раз встречается последняя цифра
+        count_last += 1
+
+    if digit % 2 == 0: #считаем чётные цифры 
+        count_even += 1
+
+    if digit > 5:  #складываем теперт цифры, которые больше 5
+        sum_big_5 += digit
+
+    if digit > 7:  #умножаем цифры, которые больше 7
+        mult_big_7 *= digit
+
+    if digit == 0 or digit == 5: #считаем цифры 0 и 5
+        count_0_5 += 1
+
+    n = n // 10   #убираем последнюю цифру
+
+print(count_3)
+print(count_last)
+print(count_even)
+print(sum_big_5)
+print(mult_big_7)
+print(count_0_5)
