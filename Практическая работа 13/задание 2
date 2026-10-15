@@ -1,0 +1,9 @@
+
+n = int(input())  #количество строк
+symbols = []
+
+for _ in range(n):
+    string = input() 
+    symbols.extend(string)  #добавляем символы в список
+
+print(symbols)  
