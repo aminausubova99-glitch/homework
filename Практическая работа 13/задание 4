@@ -1,0 +1,20 @@
+
+IP_address = input()  #вводим IP-адрес
+
+num = IP_address.split(".")  #разделяем по точкам
+correct = True
+
+#проверяем, что частей ровно четыре
+if len(num) == 4:
+    for number in num:
+        #проверяем, что часть состоит из цифр и не больше 255
+        if not number.isdigit() or int(number) > 255:
+            correct = False
+            break
+else:
+    correct = False
+
+if correct:
+    print("ДА")
+else:
+    print("НЕТ")
