@@ -1,0 +1,7 @@
+
+file = input("Введите называние файла: ")  #вводим путь к файлу
+
+parts = file.split("\\")  #разделяем по обратному слешу
+
+for part in parts:
+    print(part)
