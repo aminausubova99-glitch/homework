@@ -1,0 +1,52 @@
+import random
+
+count = 2
+elements_count = 8
+
+numbers = []
+i = 0
+
+while i < count:
+    row = []
+    j = 0
+
+    while j < elements_count:
+        row.append(random.randint(1, 50))
+        j += 1
+
+    numbers.append(row)
+    i += 1
+
+#выводим вложенный списк
+print("Вложенный список:")
+for row in numbers:
+    print(row)
+
+#считаем суммы каждой строки
+total_sum = 0
+max_sum = 0
+max_row = 0
+
+i = 0
+while i < len(numbers):
+    row_sum = 0
+    j = 0
+
+    while j < len(numbers[i]):
+        row_sum += numbers[i][j]
+        j += 1
+
+    total_sum += row_sum
+
+    print(f"Сумма строки {i + 1}: {row_sum}")
+
+    #ищем строки с mах суммой
+    if i == 0 or row_sum > max_sum:
+        max_sum = row_sum
+        max_row = i
+
+    i += 1
+
+print(f"\nОбщая сумма элементов: {total_sum}")
+print(f"Строка с максимальной суммой: {max_row + 1}")
+print(f"Максимальная сумма: {max_sum}")
