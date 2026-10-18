@@ -1,0 +1,24 @@
+import random
+
+numbers = [[random.randint(1, 100) for _ in range(4)]
+    for _ in range(3)] #вложенный список, точнее 3 строки по 4 числа
+
+for row in numbers:
+    print(row)
+
+max_num = numbers[0][0]
+max_row = 0
+max_position = 0
+
+#теперь ищем max элемент
+for i in range(len(numbers)):
+    for j in range(len(numbers[i])):
+        if numbers[i][j] > max_num:
+            max_num = numbers[i][j]
+            max_row = i
+            max_position = j
+
+print(f"Максимальный элемент: {max_num}")
+print(f"Индекс строки: {max_row}")
+print(f"Индекс элемента в строке: {max_position}")
+print(f"Позиция элемента: [{max_row}][{max_position}]")
