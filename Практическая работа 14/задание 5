@@ -1,0 +1,22 @@
+N = int(input()) #вывлдим максимальное предметов
+
+items = list(map(int, input().split())) #теперь выводим ценности всех предметов
+
+i = 0 #сортируем предметы по снижение ценности
+while i < len(items):
+    j = 0
+    while j < len(items) - 1 - i:
+        if items[j] < items[j + 1]:
+            items[j], items[j + 1] = items[j + 1], items[j]
+        j += 1
+    i += 1
+
+value = 0 #считает максимальные суммарные ценности
+i = 0
+
+while i < N and i < len(items):
+    if items[i] > 0: #возьмем предметы с положительной ценностью
+        value += items[i]
+    i += 1
+
+print(value) #выыодим максимальное суммарные ценности 
