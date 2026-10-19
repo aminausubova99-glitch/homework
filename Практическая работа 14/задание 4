@@ -1,0 +1,29 @@
+import random
+
+num = [[random.randint(10, 50) for _ in range(5)]
+       for _ in range(4)]
+
+print("Вложенный список:")
+for row in num:
+    print(row)
+
+search_value = int(input("Введите число для поиска: "))
+
+#поиск всех позиций
+row_number = 0
+found = False
+
+while row_number < len(num): #перебор всех строк
+    column_number = 0
+
+    while column_number < len(num[row_number]): #перебор элементов строки
+        if num[row_number][column_number] == search_value: #теперь проверяем совпадения 
+            print(f"Элемент найден: строка {row_number}, столбец {column_number}")
+            found = True
+
+        column_number += 1 #переходим следующему 
+
+    row_number += 1
+
+if not found: #эта когда элемент не найден 
+    print(f"Элемент {search_value} не найден")
