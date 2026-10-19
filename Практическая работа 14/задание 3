@@ -1,0 +1,19 @@
+num = [[4, -7, 2, 0], [-2, 6, 1, -5], [7, 0, -2, 9]]
+
+filtered_numbers = [] #создаём пустой список
+
+i = 0
+while i < len(num):
+    filtered_row = [] #создаём пустую строку
+    j = 0
+
+    while j < len(num[i]): #проверка что числа в строке
+        if num[i][j] > 0:  #ну если число положительное, то мы добавляем его
+            filtered_row.append(num[i][j])
+        j += 1
+
+    filtered_numbers.append(filtered_row) #теперь добавляем строку в новый список
+    i += 1
+
+print("Исходный список:", num)
+print("Отфильтрованный список:", filtered_numbers)
