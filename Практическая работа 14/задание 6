@@ -1,0 +1,31 @@
+
+prices = list(map(int, input("Введите цены предметов через пробел: ").split()))
+
+prices_increases = prices.copy()  #цены по возрастанию
+prices_descending = prices.copy()  #цены по убыванию 
+
+i = 0  #счётчик проходов
+while i < len(prices_increases) - 1:  #также повторение проходов по списку
+    j = 0 
+    while j < len(prices_increases) - 1 - i:  #сравнение соседних элементов
+        if prices_increases[j] > prices_increases[j + 1]:  #проверяем порядок цен
+            prices_increases[j], prices_increases[j + 1] = prices_increases[j + 1], prices_increases[j] #обмены элементов
+        j += 1  #переходим к следующему элементу
+    i += 1
+
+
+i = 0 
+while i < len(prices_descending) - 1:  #повтор проходов по списку
+    j = 0 
+    while j < len(prices_descending) - 1 - i:  #сравнение элементов
+        if prices_descending[j] < prices_descending[j + 1]:  #проверяем порядка цен
+            prices_descending[j], prices_descending[j + 1] = prices_descending[j + 1], prices_descending[j]  #обмены элементов
+        j += 1  #переходим к следующему 
+    i += 1 
+
+prices_reversed = prices[::-1] #создаем списк в обратном порядке
+
+print(f"Сортировка по возрастанию: {prices_increases}")
+print(f"Сортировка по убыванию: {prices_descending}")
+print(f"Оригинальный порядок (от старых к новым): {prices}")
+print(f"Обратный порядок (от новых к старым): {prices_reversed}")
