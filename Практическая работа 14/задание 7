@@ -1,0 +1,25 @@
+def bubble_sort(num):
+    n = len(num)  #количество элементов
+    is_swapped = True  #флаг обмена элементов
+
+    while is_swapped: 
+        is_swapped = False  #типа обменов не будет
+        i = 0  #начнем с первого элемента
+
+        while i < n - 1:  #проверка соседние элементы
+            if num[i] > num[i + 1]:  #когда левый больше правого
+                num[i], num[i + 1] = num[i + 1], num[i]  #обмен местами
+                is_swapped = True 
+
+            i += 1  
+
+        n -= 1 #уменшался количество проверок
+
+    return num #возвращение результат
+
+
+num = [1, 9, 9, 7, 2] 
+
+print(f"Исходный список: {num}")
+sorted_num = bubble_sort(num)
+print(f"Отсортированный список: {sorted_num}")
