@@ -1,0 +1,74 @@
+
+labyrinth = input("Введите лабиринт из 25 символов: ")
+
+if len(labyrinth) != 25:  #надо проверить, что мы ровно ввели 25 символов
+    print("Ошибка! Лабиринт должен содержать 25 символов")
+else:
+    print("\nЛабиринт:")  #вывод лабиринта по 5 символов
+
+    for i in range(5):
+        row = labyrinth[i * 5:i * 5 + 5]
+        print(row)
+
+    entrance_num = labyrinth.find("н")  #задание 2, мы ищем вход в лабиринт
+
+    if entrance_num != -1:
+        #находим строку и столбец входа
+        entrance_row = entrance_num // 5
+        entrance_col = entrance_num % 5
+
+        print(f"\nВход находится в строке {entrance_row}, столбце {entrance_col}")
+    else:
+        print("\nВход в лабиринте не найден")
+
+    exit_num = labyrinth.find("ф")  #задание 3, мы теперь ищем выход из лабиринта
+
+    if exit_num != -1:
+        exit_row = exit_num // 5  #ищем строку и столбец выхода
+        exit_col = exit_num % 5
+
+        print(f"Выход находится в строке {exit_row}, столбце {exit_col}")
+    else:
+        print("Выход в лабиринте не найден")
+
+    if entrance_num != -1 and exit_num != -1:
+        distance = abs(entrance_row - exit_row) + abs(entrance_col - exit_col) #задание 4, надо считать расстояние между входом и выходом
+
+        print(f"Расстояние между входом и выходом: {distance} шагов")  #надо сложить расстояния по строке и столбцам
+
+    coins = labyrinth.count("м")  #задание 5, теперь считаем количество монет
+    print(f"Количество монет: {coins} 🟡")
+
+    #задание 6, считаем урон от ловушек и врагов
+    traps = labyrinth.count("л")  #ловушки
+    enemies = labyrinth.count("з") #враги
+
+    damage = traps * 10 + enemies * 50  #каждая ловушка забирает 10 HP, а каждый враг по 50 HP
+
+    health = max(0, 100 - damage)  #считаем оставшееся здоровье
+    lost_health = 100 - health
+
+    hearts = "♥" * (health // 10)  #каждое сердце обозначает 10 HP
+    empty_hearts = "♡" * (lost_health // 10)
+
+    print(f"Ловушек: {traps}")
+    print(f"Враги: {enemies}")
+    print(f"Полученный урон: {damage} HP")
+    print(f"Оставшееся здоровье: {health} HP")
+    print(f"Здоровье: {hearts}{empty_hearts}")
+
+    emoji_labyrinth = labyrinth  #задание 7, замена символов на эмодзи
+
+    emoji_labyrinth = emoji_labyrinth.replace("0", "⬜") #белый квадрат 
+    emoji_labyrinth = emoji_labyrinth.replace("1", "⬛") #черный квадрат 
+    emoji_labyrinth = emoji_labyrinth.replace("л", "🔷") #синий ромб 
+    emoji_labyrinth = emoji_labyrinth.replace("м", "🟡") #желтый круг 
+    emoji_labyrinth = emoji_labyrinth.replace("ф", "🟫") #коричневый квадрат 
+    emoji_labyrinth = emoji_labyrinth.replace("з", "🐷") #хрюшка 
+    emoji_labyrinth = emoji_labyrinth.replace("н", "⭐") #звезда 
+
+    print("\nЛабиринт с эмодзи:")
+
+    for i in range(5):  #вывод лабиринта с эмодзи по 5 символов в строке
+        row = emoji_labyrinth[i * 5:i * 5 + 5]
+        print(row)
