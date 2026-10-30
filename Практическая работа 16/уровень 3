@@ -1,0 +1,11 @@
+#файлы 2 серверов
+server_A = set(input("Введите файлы сервера A: ").split()) 
+server_B = set(input("Введите файлы сервера B: ").split())
+
+shared = server_A & server_B #ищем общие файлы 
+
+lost = server_A - server_B #ищем фвйлы у которого нет в сервере В
+
+#надо вывестии результаты по альфавиту 
+print("Общие:", " ".join(sorted(shared)))
+print("Потерянные:", " ".join(sorted(lost)))
