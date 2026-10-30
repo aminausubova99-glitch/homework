@@ -1,0 +1,9 @@
+allowed = set(input("Введите разрешенные id: ").split()) #надо создать множество разрешенных айди
+incoming = input("Введите входящие id: ").split() #получили новое айди
+
+for id in incoming: #теперь проверяем каждый айди
+    if id in allowed:
+        print("OK")
+    else:
+        print("ADDED")
+        allowed.add(id)
