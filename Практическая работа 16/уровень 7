@@ -1,0 +1,19 @@
+agent = (2, 2) #это коордт агента
+
+points = {(1, 1), (5, 5), (0, 3)} #множество безопасных точек
+
+#минимальные расстояния
+min_distance = None
+nearest_point = None
+
+#перебор безопасных точек
+for point in points:
+    distance = abs(agent[0] - point[0]) + abs(agent[1] - point[1]) #считаем манхэттенское расстояние
+
+    if min_distance is None or distance < min_distance:     #проверка расстояние на минимальность
+        min_distance = distance
+        nearest_point = point
+
+#вывол ближ точку и расстояние 
+print('Ближайшая точка:', nearest_point)
+print('Расстояние:', min_distance)
