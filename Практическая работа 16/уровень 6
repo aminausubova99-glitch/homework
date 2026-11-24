@@ -1,0 +1,12 @@
+#выводим иайди сотрудников трех отделов
+department1 = set(map(int, input().split()))
+department2 = set(map(int, input().split()))
+department3 = set(map(int, input().split()))
+
+all_ids = set(range(11)) #создаем множество айди от 0 до 10
+
+present = department1 | department2 | department3 #соеденяем присутствующих сотрудников
+
+ghosts = all_ids - present #ищем отсутствующих сотрудников
+
+print(*sorted(ghosts)) #вывод по возрастанию 
