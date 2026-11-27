@@ -1,0 +1,30 @@
+class Monster:
+    def __init__(self, name="Неизвестная тварь", hp=100, dmg=10):
+        self.name = name
+        self.hp = hp
+        self.dmg = dmg
+
+        print(f"Монстр: {self.name}")
+        print(f"HP: {self.hp}")
+        print(f"DMG: {self.dmg}")
+
+
+monster1 = input().split()
+monster2 = input().split()
+
+m1 = Monster(monster1[0], int(monster1[1]), int(monster1[2]))
+m2 = Monster(monster2[0], int(monster2[1]), int(monster2[2]))
+
+while m1.hp > 0 and m2.hp > 0:
+    m2.hp = max(0, m2.hp - m1.dmg)
+    print(f"{m1.name} наносит удар!")
+    print(f"У {m2.name} осталось {m2.hp} HP")
+
+    if m2.hp == 0:
+        break
+
+    m1.hp = max(0, m1.hp - m2.dmg)
+    print(f"{m2.name} наносит удар!")
+    print(f"У {m1.name} осталось {m1.hp} HP")
+
+print(f"Победил {m1.name if m1.hp > 0 else m2.name}!")
